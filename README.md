@@ -3,11 +3,15 @@
 
 ### Integrantes
 
-Lucca Bertolini RM: 569552
-Diego de Oliveira Brandão RM: 569773 
-Raphaello Caffettani RM: 572334
-Cristhian Henrique Clementino RM: 574117
-Fabio Pena Vieira RM: 570441
+Lucca Bertolini - RM: 569552
+
+Diego de Oliveira Brandão - RM: 569773 
+
+Raphaello Caffettani - RM: 572334
+
+Cristhian Henrique Clementino - RM: 574117
+
+Fabio Pena Vieira - RM: 570441
 
 ---
 
