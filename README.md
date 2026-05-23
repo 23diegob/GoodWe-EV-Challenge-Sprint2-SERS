@@ -1,9 +1,105 @@
-# GoodWe-EV-Challenge-Sprint2-SERS
+# EcoCharge Smart Grid - Sprint 2
+## Prova de Conceito Funcional
+
+### Integrantes
+
+| Nome | RM |
+|---|---:|
+| Lucca Bertolini | 569552 |
+| Diego de Oliveira Brandão | 569773 |
+| Raphaello Caffettani | 572334 |
+| Cristhian Henrique Clementino | 574117 |
+| Fabio Pena Vieira | 570441 |
+
+---
+
+# Descrição do Projeto
+
+O **EcoCharge Smart Grid** é uma solução voltada para mobilidade elétrica inteligente, gestão energética e infraestrutura sustentável. O projeto busca desenvolver uma infraestrutura inteligente para eletropostos urbanos, utilizando análise de dados e distribuição energética estratégica para otimizar o carregamento de veículos elétricos.
+
+A proposta foi criada considerando o crescimento da mobilidade elétrica e os desafios futuros relacionados ao aumento da demanda energética nas cidades inteligentes.
+
+O sistema pretende unir:
+
+- gerenciamento inteligente de energia;
+- monitoramento em tempo real;
+- eficiência energética;
+- integração com energias renováveis;
+- redução de desperdícios;
+- mobilidade sustentável.
+
+---
+
+# Objetivo da Sprint
+
+O objetivo da Sprint 2 é desenvolver uma **prova de conceito funcional** capaz de demonstrar a viabilidade técnica inicial da solução apresentada na Sprint 1.
+
+Nesta etapa foi desenvolvido um protótipo simulado que representa o funcionamento básico de um sistema inteligente para gerenciamento energético em eletropostos.
+
+O foco principal consiste em demonstrar:
+
+- monitoramento dos níveis de bateria;
+- análise automática de dados;
+- priorização inteligente do carregamento;
+- distribuição eficiente da energia;
+- aplicação dos conceitos de sustentabilidade.
+
+---
+
+# Problema Identificado
+
+Com o crescimento do número de veículos elétricos, diversos desafios surgem relacionados à infraestrutura energética:
+
+- aumento da demanda por energia;
+- filas em horários de pico;
+- sobrecarga da rede elétrica;
+- desperdício energético;
+- baixa eficiência operacional;
+- ausência de priorização entre veículos.
+
+Sem uma gestão inteligente, os eletropostos podem distribuir energia igualmente entre todos os veículos, mesmo quando alguns possuem bateria crítica.
+
+Isso pode aumentar o tempo de espera e reduzir a eficiência do sistema.
+
+---
+
+# Solução Proposta
+
+O EcoCharge Smart Grid propõe um sistema capaz de monitorar continuamente os dados recebidos dos veículos conectados ao eletroposto e utilizar essas informações para tomar decisões automáticas.
+
+No protótipo desenvolvido, o sistema recebe dados simulados referentes aos níveis de bateria dos veículos e determina qual deles possui maior necessidade de carregamento.
+
+A partir dessa análise, a energia é distribuída de maneira estratégica.
+
+---
+
+# Funcionalidade Demonstrada
+
+A funcionalidade principal apresentada nesta Sprint foi:
+
+## Priorização Inteligente de Carregamento
+
+O protótipo simula três veículos:
+
+- Veículo 1 → 80%
+- Veículo 2 → 50%
+- Veículo 3 → 10%
+
+O sistema identifica automaticamente o veículo mais crítico e define sua prioridade de atendimento.
+
+Resultado esperado:
+
+```txt
+Veículo prioritário: Veículo 3
+Motivo: menor nível de bateria identificado
+Prioridade: Alta
+```
+
+---
+
 # Arquitetura do Sistema
 
-A arquitetura do EcoCharge Smart Grid foi organizada em três camadas principais: Entrada de Dados, Processamento Inteligente e Saída de Dados.
-
-Fluxo de funcionamento:
+A arquitetura foi dividida em três etapas principais:
 
 ```txt
 ┌────────────────────────┐
@@ -11,9 +107,9 @@ Fluxo de funcionamento:
 │------------------------│
 │ • Nível da bateria     │
 │ • Veículos conectados  │
-│ • Demanda energética   │
-│ • Energia solar        │
 │ • Energia disponível   │
+│ • Geração solar        │
+│ • Demanda energética   │
 └──────────┬─────────────┘
            │
            ▼
@@ -21,7 +117,7 @@ Fluxo de funcionamento:
 │ Processamento          │
 │------------------------│
 │ • Análise dos dados    │
-│ • Comparação dos níveis│
+│ • Comparação           │
 │ • Priorização          │
 │ • Decisão automática   │
 └──────────┬─────────────┘
@@ -31,39 +127,39 @@ Fluxo de funcionamento:
 │ Saída de Dados         │
 │------------------------│
 │ • Veículo prioritário  │
-│ • Status do sistema    │
-│ • Fluxo energético     │
 │ • Dashboard            │
+│ • Status operacional   │
+│ • Fluxo energético     │
 └────────────────────────┘
 ```
 
-## Funcionamento da Arquitetura
+---
 
-### Entrada de Dados
+## Entrada de Dados
 
-Nesta etapa, o sistema recebe dados necessários para o gerenciamento energético.
+Nesta etapa, o sistema recebe informações relacionadas ao carregamento:
 
-Dados utilizados na simulação:
+Dados utilizados:
 
 - nível de bateria dos veículos;
-- demanda energética atual;
-- energia solar gerada;
+- demanda energética;
 - energia disponível;
-- quantidade de veículos conectados.
+- quantidade de veículos conectados;
+- geração solar simulada.
 
-Em uma implementação real, essas informações poderiam ser captadas através de:
+Em aplicações futuras, essas informações poderiam ser obtidas por:
 
 - sensores inteligentes;
-- sistemas IoT;
-- APIs de veículos elétricos;
+- Internet das Coisas (IoT);
+- APIs dos veículos;
 - painéis solares;
 - medidores energéticos.
 
 ---
 
-### Processamento Inteligente
+## Processamento
 
-Após receber as informações, o sistema executa uma lógica de decisão responsável pela priorização energética.
+Após receber as informações, o sistema executa uma lógica de decisão.
 
 Lógica aplicada:
 
@@ -93,34 +189,27 @@ Veículo 3
 
 ---
 
-### Saída de Dados
+## Saída de Dados
 
-Após o processamento, o sistema retorna:
+Após a análise, o sistema apresenta:
 
-- veículo priorizado;
+- veículo prioritário;
 - ordem de carregamento;
-- distribuição energética;
 - status operacional;
+- distribuição energética;
 - informações do dashboard.
-
-Esses dados podem ser visualizados em:
-
-- aplicativo mobile;
-- dashboard web;
-- painel do eletroposto;
-- central de monitoramento.
 
 ---
 
 # Justificativas Técnicas
 
-As decisões tomadas no desenvolvimento do EcoCharge Smart Grid foram baseadas em critérios técnicos relacionados à eficiência energética, sustentabilidade e viabilidade de implementação.
+As decisões adotadas foram baseadas em critérios de eficiência energética e sustentabilidade.
 
-### Uso de priorização automática
+## Priorização automática
 
 Justificativa:
 
-Um sistema tradicional distribui energia igualmente entre veículos conectados, independentemente do nível de bateria.
+Um sistema convencional trata todos os veículos da mesma maneira.
 
 A solução proposta utiliza análise de dados para identificar necessidades prioritárias.
 
@@ -128,62 +217,62 @@ Benefícios:
 
 - redução do tempo de espera;
 - melhor distribuição energética;
-- menor desperdício;
-- maior eficiência operacional.
+- redução de desperdícios;
+- maior eficiência.
 
 ---
 
-### Simulação de energia solar
+## Simulação de energia solar
 
 Justificativa:
 
-A energia solar é uma das principais fontes renováveis utilizadas atualmente devido à baixa emissão de poluentes e possibilidade de geração distribuída.
+A energia solar representa uma das principais fontes renováveis utilizadas atualmente.
 
 Benefícios:
 
-- redução do consumo da rede elétrica;
-- menor impacto ambiental;
-- diminuição de custos operacionais;
+- redução da dependência da rede elétrica;
+- menor emissão de poluentes;
+- redução de custos;
 - incentivo ao uso de energia limpa.
 
 ---
 
-### Utilização de dashboards e monitoramento
+## Dashboard e monitoramento
 
 Justificativa:
 
-O monitoramento em tempo real permite identificar rapidamente variações de demanda energética.
+Monitoramento em tempo real permite decisões rápidas.
 
 Benefícios:
 
-- tomada de decisão mais rápida;
-- controle operacional;
-- acompanhamento do desempenho do sistema;
+- maior controle operacional;
+- acompanhamento do sistema;
+- análise de desempenho;
 - maior confiabilidade.
 
 ---
 
 # Diagramas
 
-## Diagrama de Fluxo
+## Fluxo operacional
 
 ```txt
 Veículos conectados
         ↓
-Leitura do nível da bateria
+Leitura dos níveis de bateria
         ↓
 Análise dos dados
         ↓
 Sistema define prioridade
         ↓
-Distribuição inteligente
+Distribuição energética
         ↓
 Exibição dos resultados
 ```
 
 ---
 
-## Diagrama Conceitual
+## Diagrama conceitual
 
 ```txt
 Painéis solares
@@ -201,17 +290,86 @@ Veículos elétricos
 
 ---
 
+# Exemplo de Simulação
+
+| Veículo | Nível de bateria | Prioridade |
+|---|---:|---|
+| Veículo 1 | 80% | Baixa |
+| Veículo 2 | 50% | Média |
+| Veículo 3 | 10% | Alta |
+
+Resultado:
+
+```txt
+Veículo priorizado: Veículo 3
+Motivo: menor nível de bateria identificado
+Status: Prioridade Alta
+```
+
+---
+
+# Sustentabilidade e Energias Renováveis
+
+A sustentabilidade representa um dos principais pilares do EcoCharge Smart Grid.
+
+O sistema considera a utilização de energia solar através de painéis fotovoltaicos instalados nos eletropostos.
+
+Objetivos:
+
+- utilizar energia limpa;
+- reduzir consumo da rede elétrica;
+- diminuir emissão indireta de carbono;
+- aumentar eficiência energética.
+
+Aplicações sustentáveis:
+
+- redução de desperdícios;
+- aproveitamento energético inteligente;
+- menor impacto ambiental;
+- incentivo à mobilidade elétrica.
+
+---
+
+# Eficiência Energética
+
+O sistema busca otimizar a utilização da energia disponível.
+
+Benefícios:
+
+- menor desperdício;
+- equilíbrio entre demanda e consumo;
+- distribuição inteligente;
+- melhor utilização dos recursos.
+
+---
+
+# Tecnologias Utilizadas
+
+Possíveis tecnologias utilizadas:
+
+- Python
+- HTML
+- CSS
+- JavaScript
+- GitHub
+- Simulações energéticas
+- Dashboards
+
+---
+
 # Instruções de Uso
 
-1. Baixar ou clonar o repositório:
+1. Clonar o repositório:
 
 ```bash
 git clone LINK_DO_REPOSITORIO
 ```
 
-2. Abrir a simulação.
+2. Abrir o projeto.
 
-3. Inserir ou visualizar os dados dos veículos:
+3. Executar a simulação.
+
+4. Inserir ou visualizar os níveis de bateria:
 
 Exemplo:
 
@@ -221,60 +379,33 @@ Veículo 2 → 50%
 Veículo 3 → 10%
 ```
 
-4. Executar a lógica do sistema.
+5. Executar a lógica de decisão.
 
-5. Observar o veículo priorizado.
+6. Observar a prioridade definida pelo sistema.
 
-6. Verificar o fluxo energético apresentado no dashboard.
-
----
-
-# Aplicação dos Princípios de Energias Renováveis e Sustentabilidade
-
-O EcoCharge Smart Grid incorpora princípios de sustentabilidade em diferentes partes da solução.
-
-### Energia Renovável
-
-O sistema considera o uso de energia solar por meio de painéis fotovoltaicos instalados nos eletropostos.
-
-Objetivos:
-
-- aproveitar energia limpa;
-- reduzir dependência da rede elétrica;
-- diminuir emissão indireta de carbono.
+7. Analisar os resultados exibidos.
 
 ---
 
-### Eficiência Energética
+# Melhorias Futuras
 
-A solução busca utilizar a energia disponível de forma inteligente.
+Como evolução do projeto:
 
-Aplicações:
-
-- priorização automática;
-- redução de desperdícios;
-- distribuição equilibrada;
-- controle do consumo.
-
----
-
-### Sustentabilidade Ambiental
-
-A proposta contribui para:
-
-- incentivo à mobilidade elétrica;
-- redução da emissão de gases poluentes;
-- menor impacto ambiental;
-- utilização consciente dos recursos energéticos.
-
----
-
-### Sustentabilidade Tecnológica
-
-O projeto também foi pensado para crescimento futuro:
-
-- integração com sensores reais;
+- sensores reais;
+- integração com Arduino/ESP32;
 - inteligência artificial;
-- cidades inteligentes;
-- Internet das Coisas (IoT);
-- armazenamento energético inteligente.
+- dashboard em tempo real;
+- integração com cidades inteligentes;
+- armazenamento energético inteligente;
+- aplicativo para usuários;
+- previsão de demanda energética.
+
+---
+
+# Conclusão
+
+A Sprint 2 demonstrou a viabilidade técnica inicial do EcoCharge Smart Grid por meio de uma prova de conceito funcional.
+
+O sistema foi capaz de monitorar dados simulados, analisar níveis de bateria e definir prioridades automáticas de carregamento.
+
+Além disso, o projeto incorpora princípios de energias renováveis e sustentabilidade, reforçando seu potencial para aplicações futuras em infraestrutura energética inteligente.
